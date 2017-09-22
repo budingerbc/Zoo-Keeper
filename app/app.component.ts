@@ -27,6 +27,7 @@ import { Animal } from './animal';
 
 export class AppComponent {
 
+  // Filler data to see how the interface looks
   masterAnimalList: Animal[] = [
 
     new Animal("Asian Elephant", "Ginny", 5, "Herbivore", "Safari Habitat", 2, "Female", "Ginny gets a kick out of spraying her keepers with water!", "Ginny gets grumpy when play time is over."),
