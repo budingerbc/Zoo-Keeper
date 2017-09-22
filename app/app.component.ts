@@ -10,7 +10,7 @@ import { Animal } from './animal';
   </div>
 
   <div class="container">
-    <new-animal></new-animal>
+    <new-animal (newAnimalSender)="addAnimal($event)"></new-animal>
     <animal-list [childAnimalList]="masterAnimalList"></animal-list>
   </div>
 
@@ -18,6 +18,10 @@ import { Animal } from './animal';
 })
 
 export class AppComponent {
+
+  addAnimal(animal) {
+    this.masterAnimalList.push(animal);
+  }
 
   masterAnimalList: Animal[] = [
 

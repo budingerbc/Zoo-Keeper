@@ -21,17 +21,17 @@ import { Animal } from './animal';
 
       <li>
         <select #location class="field-style field-split align-left left-option" required>
-          <option value='' disabled selected>Select Location</option>
-          <option [value]='1'>Safari Habitat</option>
-          <option [value]='2'>Aquarium</option>
-          <option [value]='3'>Aviary</option>
+          <option value="" disabled selected>Select Location</option>
+          <option value="Safari Habitat">Safari Habitat</option>
+          <option value="Aquarium">Aquarium</option>
+          <option value="Aviary">Aviary</option>
         </select>
 
         <select #diet class="field-style field-split align-right right-option" required>
-          <option value='' disabled selected>Select Diet</option>
-          <option [value]='1'>Herbivore</option>
-          <option [value]='2'>Carnivore</option>
-          <option [value]='3'>Omnivore</option>
+          <option value="" disabled selected>Select Diet</option>
+          <option value="Herbivore">Herbivore</option>
+          <option value="Carnivore">Carnivore</option>
+          <option value="Omnivore">Omnivore</option>
         </select>
       </li>
 
@@ -39,8 +39,8 @@ import { Animal } from './animal';
         <div id="gender-option">
         <select #sex required>
           <option value='' disabled selected>Select Gender</option>
-          <option [value]='1'>Male</option>
-          <option [value]='2'>Female</option>
+          <option value="Male">Male</option>
+          <option value="Female">Female</option>
         </select>
         </div>
       </li>
@@ -64,6 +64,12 @@ export class NewAnimalComponent {
     let numAge: number =+ age;
     let numCaretakers: number =+ caretakers;
 
-    let newAnimal: Animal = new Animal(species, name, numAge, diet, location, numCaretakers, sex, like, dislike);
+    if(species.length === 0 || name.length === 0 || age < 0  || caretakers < 1 || location.length === 0 || diet.length === 0 || sex.length === 0 || like.length === 0 || dislike.length === 0) {
+      alert("Form data missing.");
+    } else {
+
+      let newAnimal: Animal = new Animal(species, name, numAge, diet, location, numCaretakers, sex, like, dislike);
+      this.newAnimalSender.emit(newAnimal);
+    }
   }
 }
