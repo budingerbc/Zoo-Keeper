@@ -10,6 +10,7 @@ import { Animal } from './animal';
   </div>
 
   <div class="container">
+    <new-animal></new-animal>
     <animal-list [childAnimalList]="masterAnimalList"></animal-list>
   </div>
 

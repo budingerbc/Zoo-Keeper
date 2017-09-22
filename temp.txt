@@ -1,0 +1,24 @@
+<div id="newKegForm">
+  <label>Species:</label>
+  <input #species class="form-control" type="text">
+  <label>Name:</label>
+  <input #name class="form-control" type="text">
+  <label>Age:</label>
+  <input #age class="form-control" type="number">
+  <label>Diet:</label>
+  <input #diet class="form-control" type="text">
+  <label>Location:</label>
+  <select>
+    <option value="Safari Habitat">Safari Habitat</option>
+    <option value="Aquarium">Aquarium</option>
+    <option value="Aviary">Aviary</option>
+  </select>
+  <label>Caretakers needed:</label>
+  <input #caretakers class="form-control" type="number">
+  <label class="radio-inline">Sex:</label>
+  <input #sex class="form-control" type="radio">
+  <label>Like:</label>
+  <input #like class="form-control" type="text">
+  <label>Dislike:</label>
+  <input #dislike class="form-control" type="text">
+</div>
