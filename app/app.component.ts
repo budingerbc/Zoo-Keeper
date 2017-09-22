@@ -10,18 +10,28 @@ import { Animal } from './animal';
   </div>
 
   <div class="container">
+
+  <div id="nav-buttons">
+    <label>Filter by Age:
+    <select (change)="filterAnimalAge($event.target.value)">
+      <option value="allAnimals" selected="selected">All Animals</option>
+      <option value="youngAnimals">Young (less than 2)</option>
+      <option value="matureAnimals">Mature (2 or older)</option>
+    </select>
+  </div>
+
+
     <new-animal (newAnimalSender)="addAnimal($event)"></new-animal>
-    <animal-list [childAnimalList]="masterAnimalList"></animal-list>
+
+    <edit-animal [selectedAnimal]="selectedAnimal" (doneEditingSender)="closeEditAnimal()"></edit-animal>
+
+    <animal-list [childAnimalList]="masterAnimalList" (editAnimalSender)="editAnimal($event)"></animal-list>
   </div>
 
   `
 })
 
 export class AppComponent {
-
-  addAnimal(animal) {
-    this.masterAnimalList.push(animal);
-  }
 
   masterAnimalList: Animal[] = [
 
@@ -36,4 +46,22 @@ export class AppComponent {
     new Animal("Giant Pacific Octopus", "Octavia", 0, "Carnivore", "Aquarium", 2, "Female", "Octavia loves hugs!", "If you startle her, she'll spray ink at you."),
   ];
 
+  selectedAnimal: Animal = null;
+  filterAnimalAge: string = "allAnimals";
+
+  addAnimal(animal: Animal) {
+    this.masterAnimalList.push(animal);
+  }
+
+  editAnimal(animal: Animal) {
+    this.selectedAnimal = animal;
+  }
+
+  closeEditAnimal() {
+    this.selectedAnimal = null;
+  }
+
+  filterAnimalAge(option) {
+    this.filterAnimalAge = option;
+  }
 }

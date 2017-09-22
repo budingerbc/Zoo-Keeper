@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { Animal } from './animal';
 
 @Component({
@@ -6,7 +6,7 @@ import { Animal } from './animal';
   template: `
     <div class="panel panel-default" *ngFor="let animal of childAnimalList">
     <!-- Default panel contents -->
-      <div class="panel-heading">{{animal.name}} the {{animal.species}}, <span class="animal-sex">{{animal.sex}}</span></div>
+      <div class="panel-heading"><h2>{{animal.name}} the {{animal.species}} <span class="btn-float-right"><button (click)="editAnimal(animal)" class="btn btn-warning">Edit</button></span></h2></div>
 
       <!-- List group -->
       <ul class="list-group">
@@ -26,4 +26,9 @@ import { Animal } from './animal';
 
 export class AnimalListComponent {
   @Input() childAnimalList: Animal[];
+  @Output() editAnimalSender = new EventEmitter;
+
+  editAnimal(animal: Animal) {
+    this.editAnimalSender.emit(animal);
+  }
 }

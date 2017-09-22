@@ -102,3 +102,15 @@ textarea {
 .submit-blue:hover {
   background-color: #67b8e5;
 }
+
+#new-animal-form {
+  display: none;
+}
+
+.btn-float-right {
+  float: right;
+}
+
+.jumbotron h1 {
+  text-align: center;
+}

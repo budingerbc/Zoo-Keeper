@@ -6,7 +6,7 @@ import { Animal } from './animal';
   template: `
 
 
-  <form class="form-style-9">
+  <form class="form-style-9" id="new-animal-form">
     <h3>Add Animal</h3>
     <ul>
       <li>
